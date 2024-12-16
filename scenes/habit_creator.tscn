@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjqhpmgltqqyu"]
+
+[ext_resource type="Script" path="res://scripts/habit_creator.gd" id="1_5f76o"]
+[ext_resource type="FontFile" uid="uid://b5t8sbe6tfiug" path="res://assets/Font/Planes_ValMore.ttf" id="1_46dpm"]
+
+[node name="habitCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5f76o")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.247059, 0.360784, 1)
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -7.0
+offset_right = 29.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_46dpm")
+theme_override_font_sizes/font_size = 4
+placeholder_text = "enter habit"
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+middle_mouse_paste_enabled = false
+text_direction = 1
+
+[node name="saveButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = 13.14
+offset_right = 22.0
+offset_bottom = 25.14
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_46dpm")
+theme_override_font_sizes/font_size = 4
+text = "Save
+"
+
+[connection signal="pressed" from="saveButton" to="." method="_on_save_button_pressed"]

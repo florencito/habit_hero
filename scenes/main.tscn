@@ -1,0 +1,409 @@
+[gd_scene load_steps=23 format=3 uid="uid://dvdk4452oftxm"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_5yddi"]
+[ext_resource type="PackedScene" uid="uid://brwanr3kjbu0" path="res://scenes/player.tscn" id="1_xwvln"]
+[ext_resource type="Script" path="res://scripts/habits.gd" id="2_f2h2y"]
+[ext_resource type="FontFile" uid="uid://b5t8sbe6tfiug" path="res://assets/Font/Planes_ValMore.ttf" id="2_nkboe"]
+[ext_resource type="Script" path="res://scripts/today.gd" id="3_x78i0"]
+[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="4_20avt"]
+[ext_resource type="Texture2D" uid="uid://cx2vpob8q7hpr" path="res://assets/GUI.png" id="6_n5a84"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4qsdp"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(32, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qp0q"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(16, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pt7ks"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(0, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_clmmf"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(32, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bsf7u"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(16, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aeq6h"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(0, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wnlfx"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(32, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsn3k"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(16, 80, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ldh63"]
+texture = ExtResource("6_n5a84")
+region_rect = Rect2(0, 80, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_50nwh"]
+font = ExtResource("2_nkboe")
+font_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_mx2q8"]
+font = ExtResource("2_nkboe")
+font_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djone"]
+bg_color = Color(0.594597, 0.602588, 0.596519, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uicmr"]
+bg_color = Color(0, 0.72549, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75cfi"]
+atlas = ExtResource("6_n5a84")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggr0d"]
+atlas = ExtResource("6_n5a84")
+region = Rect2(16, 80, 16, 16)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5yddi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 90.0
+offset_bottom = 160.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.247059, 0.360784, 1)
+
+[node name="Habits" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_f2h2y")
+
+[node name="habitButton_2" type="Button" parent="Control/Habits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = 22.14
+offset_right = 15.0
+offset_bottom = 34.14
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkboe")
+theme_override_font_sizes/font_size = 4
+text = "Click to add habit"
+
+[node name="habitButton_3" type="Button" parent="Control/Habits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = 37.14
+offset_right = 15.0
+offset_bottom = 49.14
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkboe")
+theme_override_font_sizes/font_size = 4
+text = "Click to add habit"
+
+[node name="doneButton" type="Button" parent="Control/Habits"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 63.0
+offset_top = 89.0
+offset_right = 71.0
+offset_bottom = 97.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_4qsdp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_7qp0q")
+theme_override_styles/normal = SubResource("StyleBoxTexture_pt7ks")
+toggle_mode = true
+
+[node name="doneButton2" type="Button" parent="Control/Habits"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 119.0
+offset_right = 71.0
+offset_bottom = 127.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_clmmf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bsf7u")
+theme_override_styles/normal = SubResource("StyleBoxTexture_aeq6h")
+toggle_mode = true
+
+[node name="doneButton3" type="Button" parent="Control/Habits"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 63.0
+offset_top = 104.0
+offset_right = 71.0
+offset_bottom = 112.0
+theme_override_styles/hover = SubResource("StyleBoxTexture_wnlfx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dsn3k")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ldh63")
+toggle_mode = true
+
+[node name="habitButton_1" type="Button" parent="Control/Habits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = 7.14
+offset_right = 15.0
+offset_bottom = 19.14
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_nkboe")
+theme_override_font_sizes/font_size = 4
+text = "Click to add habit"
+
+[node name="today" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 14.0
+offset_right = 65.0
+offset_bottom = 19.0
+text = "Today"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+script = ExtResource("3_x78i0")
+
+[node name="level" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 65.0
+offset_bottom = 23.0
+text = "Level: 9999"
+label_settings = SubResource("LabelSettings_mx2q8")
+horizontal_alignment = 1
+
+[node name="player" parent="Control" instance=ExtResource("1_xwvln")]
+position = Vector2(45, 45)
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 25.0
+offset_right = 71.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("2_nkboe")
+theme_override_font_sizes/font_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_djone")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uicmr")
+script = ExtResource("4_20avt")
+
+[node name="weekDayButtons" type="Control" parent="Control"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 72.0
+offset_right = 96.0
+offset_bottom = 86.0
+scale = Vector2(0.88, 0.88)
+
+[node name="mondayButton" type="TextureButton" parent="Control/weekDayButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 16.0
+offset_bottom = 17.0
+scale = Vector2(0.795, 0.795)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_75cfi")
+texture_pressed = SubResource("AtlasTexture_ggr0d")
+
+[node name="today2" type="Label" parent="Control/weekDayButtons/mondayButton"]
+layout_mode = 0
+offset_left = 1.25786
+offset_top = 5.03145
+offset_right = 18.2579
+offset_bottom = 10.0314
+text = "Mo"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+
+[node name="tuesdayButton" type="TextureButton" parent="Control/weekDayButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 29.0
+offset_bottom = 17.0
+scale = Vector2(0.795, 0.795)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_75cfi")
+texture_pressed = SubResource("AtlasTexture_ggr0d")
+
+[node name="today2" type="Label" parent="Control/weekDayButtons/tuesdayButton"]
+layout_mode = 0
+offset_left = 1.25786
+offset_top = 5.03145
+offset_right = 18.2579
+offset_bottom = 10.0314
+text = "Tu"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+
+[node name="wednesdayButton" type="TextureButton" parent="Control/weekDayButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 26.0
+offset_top = 1.0
+offset_right = 42.0
+offset_bottom = 17.0
+scale = Vector2(0.795, 0.795)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_75cfi")
+texture_pressed = SubResource("AtlasTexture_ggr0d")
+
+[node name="today2" type="Label" parent="Control/weekDayButtons/wednesdayButton"]
+layout_mode = 0
+offset_left = 1.25786
+offset_top = 5.03145
+offset_right = 18.2579
+offset_bottom = 10.0314
+text = "We"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+
+[node name="thursdayButton" type="TextureButton" parent="Control/weekDayButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 39.0
+offset_top = 1.0
+offset_right = 55.0
+offset_bottom = 17.0
+scale = Vector2(0.795, 0.795)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_75cfi")
+texture_pressed = SubResource("AtlasTexture_ggr0d")
+
+[node name="today2" type="Label" parent="Control/weekDayButtons/thursdayButton"]
+layout_mode = 0
+offset_left = 1.25786
+offset_top = 5.03145
+offset_right = 18.2579
+offset_bottom = 10.0314
+text = "Th"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+
+[node name="fridayButton" type="TextureButton" parent="Control/weekDayButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 52.0
+offset_top = 1.0
+offset_right = 68.0
+offset_bottom = 17.0
+scale = Vector2(0.795, 0.795)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_75cfi")
+texture_pressed = SubResource("AtlasTexture_ggr0d")
+
+[node name="today2" type="Label" parent="Control/weekDayButtons/fridayButton"]
+layout_mode = 0
+offset_left = 1.25786
+offset_top = 5.03145
+offset_right = 18.2579
+offset_bottom = 10.0314
+text = "Fr"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+
+[node name="saturdayButton" type="TextureButton" parent="Control/weekDayButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 65.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 17.0
+scale = Vector2(0.795, 0.795)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_75cfi")
+texture_pressed = SubResource("AtlasTexture_ggr0d")
+
+[node name="today2" type="Label" parent="Control/weekDayButtons/saturdayButton"]
+layout_mode = 0
+offset_left = 1.25786
+offset_top = 5.03145
+offset_right = 18.2579
+offset_bottom = 10.0314
+text = "Sa"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+
+[node name="sundayButton" type="TextureButton" parent="Control/weekDayButtons"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 78.0
+offset_top = 1.0
+offset_right = 94.0
+offset_bottom = 17.0
+scale = Vector2(0.795, 0.795)
+toggle_mode = true
+texture_normal = SubResource("AtlasTexture_75cfi")
+texture_pressed = SubResource("AtlasTexture_ggr0d")
+
+[node name="today2" type="Label" parent="Control/weekDayButtons/sundayButton"]
+layout_mode = 0
+offset_left = 1.25786
+offset_top = 5.03145
+offset_right = 18.2579
+offset_bottom = 10.0314
+text = "Su"
+label_settings = SubResource("LabelSettings_50nwh")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Control/Habits/habitButton_2" to="." method="_on_habit_button_2_pressed"]
+[connection signal="pressed" from="Control/Habits/habitButton_3" to="." method="_on_habit_button_3_pressed"]
+[connection signal="toggled" from="Control/Habits/doneButton" to="." method="_on_done_button_toggled"]
+[connection signal="toggled" from="Control/Habits/doneButton" to="Control/Habits" method="_on_habit_button_pressed"]
+[connection signal="pressed" from="Control/Habits/doneButton2" to="." method="_on_done_button_pressed"]
+[connection signal="toggled" from="Control/Habits/doneButton2" to="." method="_on_done_button_toggled"]
+[connection signal="toggled" from="Control/Habits/doneButton2" to="Control/Habits" method="_on_habit_button_pressed"]
+[connection signal="pressed" from="Control/Habits/doneButton3" to="." method="_on_done_button_pressed"]
+[connection signal="toggled" from="Control/Habits/doneButton3" to="." method="_on_done_button_toggled"]
+[connection signal="toggled" from="Control/Habits/doneButton3" to="Control/Habits" method="_on_habit_button_pressed"]
+[connection signal="pressed" from="Control/Habits/habitButton_1" to="." method="_on_habit_button_1_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/mondayButton" to="." method="_on_monday_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/mondayButton" to="Control/Habits" method="_on_mon_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/tuesdayButton" to="." method="_on_tuesday_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/tuesdayButton" to="Control/Habits" method="_on_tue_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/wednesdayButton" to="." method="_on_wednesday_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/wednesdayButton" to="Control/Habits" method="_on_wed_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/thursdayButton" to="." method="_on_thursday_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/thursdayButton" to="Control/Habits" method="_on_thu_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/fridayButton" to="." method="_on_friday_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/fridayButton" to="Control/Habits" method="_on_fri_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/saturdayButton" to="." method="_on_saturday_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/saturdayButton" to="Control/Habits" method="_on_sat_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/sundayButton" to="." method="_on_sunday_button_pressed"]
+[connection signal="pressed" from="Control/weekDayButtons/sundayButton" to="Control/Habits" method="_on_sun_button_pressed"]

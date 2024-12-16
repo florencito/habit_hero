@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5g5b2fnsdjl6"]
+
+[ext_resource type="Texture2D" uid="uid://cx2vpob8q7hpr" path="res://assets/GUI.png" id="1_5c5nx"]
+[ext_resource type="Script" path="res://scripts/new_level.gd" id="1_5drjt"]
+[ext_resource type="FontFile" uid="uid://b5t8sbe6tfiug" path="res://assets/Font/Planes_ValMore.ttf" id="2_0eqe8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42ipx"]
+atlas = ExtResource("1_5c5nx")
+region = Rect2(0, 96, 48, 32)
+
+[sub_resource type="Animation" id="Animation_cqxrd"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ihg32"]
+resource_name = "new_level"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.433333, 0.466667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.18, 1.18), Vector2(1.08, 1.08), Vector2(1.155, 1.155), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v332u"]
+_data = {
+"RESET": SubResource("Animation_cqxrd"),
+"new_level": SubResource("Animation_ihg32")
+}
+
+[node name="newLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(44.81, 85.94)
+script = ExtResource("1_5drjt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = 9.0
+offset_top = 62.0
+offset_right = 81.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(35.55, 23.495)
+texture = SubResource("AtlasTexture_42ipx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v332u")
+}
+autoplay = "new_level"
+speed_scale = 3.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 22.0
+offset_top = 79.0
+offset_right = 173.0
+offset_bottom = 111.0
+scale = Vector2(0.375, 0.375)
+theme_override_fonts/normal_font = ExtResource("2_0eqe8")
+bbcode_enabled = true
+text = "[wave amp = 50.0 freq=2.0 connected=1] Congratulations on leveling up [/wave] "
+
+[node name="continueButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = 14.0
+offset_right = 24.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.54, 0.54)
+theme_override_fonts/font = ExtResource("2_0eqe8")
+theme_override_font_sizes/font_size = 4
+text = "Continue"
+
+[connection signal="pressed" from="continueButton" to="." method="_on_continue_button_pressed"]
